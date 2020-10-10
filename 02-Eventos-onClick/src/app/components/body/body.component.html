@@ -1,0 +1,37 @@
+<div class="row">
+
+    <div class="col">
+        <h1>Funcion *ngif</h1>
+        <hr>
+
+        <!-- onload="Carga()" Cuando termine de cargar la paguina -->
+        <!-- onmouseover="" onmouseleave="" onClick=""-->
+
+        <div  *ngIf="!monstrar"  class="card text-white bg-dark mb-3" style="width: 28rem;">
+            <!-- Destruye el componente -->
+            <div class="card-body">
+                <h5 class="card-title">{{explicacion.autor}}</h5>
+                <p class="card-text">{{explicacion.mensaje}}</p>
+                <img (mouseout)='onMouseOut()' src="../assets/D-Va-Overwatch-Overwatch-video-games-video-game-characters-brunette-long-hair-1670859-wallhere.com.jpg"
+width="400"  height="341">
+            </div>
+        </div>
+
+
+        <button (click)="monstrar=!monstrar" class="btn btn-outline-primary"> <!-- Cambiar a true -->
+            Mostrar/Ocultar
+        </button>
+        <h3 onclick="click"></h3>
+    </div>
+
+    <div class="col">
+        <h1>Funcion *ngfor</h1>
+        <hr>
+        <ul class="list-group ">
+            <li *ngFor="let personaje of personajes; let i = index" class="list-group-item list-group-item-dark"> <!-- Funcion en base a arreglos -->
+               {{i+1}} {{personaje}}
+            </li>
+        </ul>
+    </div>
+
+</div>

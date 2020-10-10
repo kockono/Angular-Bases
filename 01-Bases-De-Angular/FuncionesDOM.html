@@ -1,0 +1,18 @@
+(click)='myChangeColor()'
+(mouseout)='onMouseOut()'
+(mouseover)='onMouseOver()'
+onclick="click"
+
+myChangeColor() {
+    const x = document.getElementById('try');
+    x.style.color = 'green';
+}
+onMouseOut() {
+    alert('Hey Pillin');
+}
+onButtonClick() {
+    alert('Simplemente Clickeaste');
+  }
+
+<img (mouseout)='onMouseOut()' src="../assets/D-Va-Overwatch-Overwatch-video-games-video-game-characters-brunette-long-hair-1670859-wallhere.com.jpg"
+width="400" height="341">

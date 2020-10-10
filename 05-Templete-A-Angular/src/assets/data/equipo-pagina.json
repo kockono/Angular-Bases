@@ -1,0 +1,23 @@
+[
+    {
+        "Frase": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Nombre": "Ezequiel Solorio Mateo",
+        "Subtitulo": "Director",
+        "Twitter": "@fernando_her85",
+        "url": "https://firebasestorage.googleapis.com/v0/b/angular-templete.appspot.com/o/team-1.jpg?alt=media&token=f2e45a62-8461-4f08-806b-7a137e710e07"
+    },
+    {
+        "Email": "@Meloxxa",
+        "Frase": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Nombre": "María Cristina González López",
+        "Subtitulos": "Marketing",
+        "url": "https://firebasestorage.googleapis.com/v0/b/angular-templete.appspot.com/o/team-2.jpg?alt=media&token=f68cc798-60b3-4e8c-b44e-885f60671a3a"
+    },
+    {
+        "Frase": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+        "Nombre": "Martha Evelia Solorio Mateo",
+        "Subtitulo": "Marketing",
+        "Twitter": "@Pedro",
+        "url": "https://firebasestorage.googleapis.com/v0/b/angular-templete.appspot.com/o/team-3.jpg?alt=media&token=a1ec5277-c306-473b-b392-a80c25edc703"
+    }
+]

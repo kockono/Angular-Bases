@@ -1,0 +1,17 @@
+Tipo de pipes
+
+* currency
+* date
+* uppercase
+* lowercase
+* json
+* limitTo
+* async
+* decimal
+* percent
+
+import { DatePipe } from '@angular/common';
+
+pipe = new DatePipe('en-US'); // Use your own locale
+today = Date.now();
+hour = this.pipe.transform(this.today, 'shortTime');
