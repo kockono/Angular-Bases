@@ -21,6 +21,8 @@ export class TemplateComponent implements OnInit {
     genero:'F'
   }
 
+  contador:number = 5;
+
 
   ngOnInit(): void {
     this.paisService.getPaises().subscribe(res => {
