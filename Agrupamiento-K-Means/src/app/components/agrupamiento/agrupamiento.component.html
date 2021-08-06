@@ -1,0 +1,115 @@
+<div class="alert alert-success text-xxl-center" role="alert">
+  <h6 >Iteracion #</h6> <h5 *ngFor="let i of iteraciones"> {{i}} </h5>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="col">
+      <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="card w-100">
+            <div class="card-header header-elements-inline card-header-azul">
+                <h5 class="card-title mt-2">Centros</h5>
+                <div class="header-elements">
+                    <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+                </div>
+            </div>
+            <div class="table-responsive table-success">  
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <th>Cluster 1</th>
+                        <td></td>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <th>Cluster 2</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <th>Cluster 3</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+      </div>
+    </div> 
+  </div> 
+
+  <div class="col-sm-6">
+    <div class="col">
+      <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="card w-100">
+          <div class="card-header header-elements-inline card-header-roja">
+            <h5 class="card-title mt-2">DKM</h5>
+            <div class="header-elements">
+                <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+            </div>
+        </div>
+        <div class="table-responsive table-success">  
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th></th>
+                <th *ngFor="let i of letras">{{i}}</th>
+              </tr>
+              <tr>
+              <tr>
+                <th>D</th>
+                <td *ngFor="let i of valoresAbsolutos1">{{i}}</td>
+              </tr>
+              <tr>
+                <th>K</th>
+                <td *ngFor="let i of valoresAbsolutos2">{{i}}</td>
+              </tr>
+              <tr>
+                <th>M</th>
+                <td *ngFor="let i of valoresAbsolutos3">{{i}}</td>
+              </tr>
+              <tr>
+                <th>Min</th>
+                <td *ngFor="let i of valoresMinimos">{{i}}</td>
+              </tr>
+              <tr>
+                <th>Cluster</th>
+                <td *ngFor="let i of valoresAbsolutos3">{{i}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+        </div>
+      </div>
+    </div> 
+  </div> 
+  <div class="col-sm-6">
+    <div class="col">
+      <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="card w-100">
+          <div class="card-header header-elements-inline card-header-roja">
+            <h5 class="card-title mt-2">DKM</h5>
+            <div class="header-elements">
+                <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+            </div>
+        </div>
+        <div class="table-responsive table-success">  
+          <table class="table table-striped">
+            <tbody>
+              <tr  rowspan="15" scope="row" *ngFor="let i of letras">{{i}}</tr>
+              <tr rowspan="15" scope="row" *ngFor="let i of valoresAbsolutos1">{{i}}</tr>
+              <tr  rowspan="15" scope="row" *ngFor="let i of valoresAbsolutos2">{{i}}</tr>
+            </tbody>
+          </table>
+    </div>
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>
