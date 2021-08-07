@@ -16,6 +16,12 @@ export class AgrupamientoComponent implements OnInit {
     valoresAbsolutos2:number[]
     valoresAbsolutos3:number[]
     valoresMinimos:number[]
+    numero_del_cluster_asignado:number[]
+
+    nuevoCluster_1 = [];
+    nuevoCluster_2 = [];
+    nuevoCluster_3 = [];
+
     letras:string[] = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'];
     numbers = [1,1,3,4,5,6,7,8,9,10,11,12,13,14]
 
@@ -29,7 +35,10 @@ export class AgrupamientoComponent implements OnInit {
     this.valoresAbsolutos2 = this.valoresAbsolutos[1];
     this.valoresAbsolutos3 = this.valoresAbsolutos[2];
     this.valoresMinimos = this.valoresAbsolutos[3];
-    console.log(this.valoresMinimos, 'Valores minimos');
+    this.numero_del_cluster_asignado = this.valoresAbsolutos[4];
+    this.nuevoCluster_1 = this.valoresAbsolutos[5]
+    this.nuevoCluster_2 = this.valoresAbsolutos[6]
+    this.nuevoCluster_3 = this.valoresAbsolutos[7]
     
   }
 
