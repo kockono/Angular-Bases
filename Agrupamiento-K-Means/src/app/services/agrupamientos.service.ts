@@ -11,7 +11,7 @@ export class AgrupamientosService {
   centro_1:number[];
   centro_2:number[];
   centro_3:number[];
-  matrizes = [];
+  
 
   nuevosCentros_1 =[]
   nuevosCentros_2 =[]
@@ -19,26 +19,39 @@ export class AgrupamientosService {
 
   numero_de_clusters_asignado:number[]
 
+
+
   minimos2 = []
   data = [
-  [7,	8,	4,	5,	2],
-  [6,	8,	5,	4,	2],
-  [8,	9,	7,	8,	9],
-  [6,	7,	7,	7,	8],
-  [1,	2,	5,	3,	4],
-  [3,	4,	5,	3,	5],
-  [7,	8,	8,	6,	6],
-  [8,	9,	6,	5,	5],
-  [2,	3,	5,	6,	5],
-  [1,	2,	4,	4,	2],
-  [3,	2,	6,	5,	7],
-  [2,	5,	6,	8,	9],
-  [3,	5,	4,	6,	3],
-  [3,	5,	5,	6,	3],
-  ]
+            [7,	8,	4,	5,	2],
+            [6,	8,	5,	4,	2],
+            [8,	9,	7,	8,	9],
+            [6,	7,	7,	7,	8], // Este grupo
+            [1,	2,	5,	3,	4],
+            [3,	4,	5,	3,	5],
+            [7,	8,	8,	6,	6],
+            [8,	9,	6,	5,	5],
+            [2,	3,	5,	6,	5],
+            [1,	2,	4,	4,	2],
+            [3,	2,	6,	5,	7], // Este
+            [2,	5,	6,	8,	9],
+            [3,	5,	4,	6,	3], // Este
+            [3,	5,	5,	6,	3],
+          ]
+
+// Cluster 1 =  [6,	7,	7,	7,	8]
+// Cluster 2 =  [3,	2,	6,	5,	7]
+// Cluster 3 =  [3,	5,	4,	6,	3]
+
 
   constructor() { 
     this.calcularDistancias();
+  }
+
+  calcularMultiplesIteraciones(nuevosCentros_1, nuevosCentros_2, nuevosCentros_3) {
+
+        return this.calcularDistancias(nuevosCentros_1, nuevosCentros_2, nuevosCentros_3);
+
   }
 
   calcularDistancias(centro_1 = this.data[3], centro_2 = this.data[10], centro_3 = this.data[12]){
@@ -54,7 +67,7 @@ export class AgrupamientosService {
     let valor_absoluto_2:any
     let valor_absoluto_3:any
 
-
+    let matrizes = [];
     // console.info(`Centro 1: ${centro_1}`);
     // console.info(`Centro 2: ${centro_2}`);
     // console.info(`Centro 3: ${centro_3}`);
@@ -87,13 +100,13 @@ export class AgrupamientosService {
     }
 
     
-    this.matrizes.push(matriz_distancia_1, matriz_distancia_2, matriz_distancia_3)
+    matrizes.push(matriz_distancia_1, matriz_distancia_2, matriz_distancia_3)
     this.minimos2 = this.calcularMinimoMaximo(matriz_distancia_1, matriz_distancia_2, matriz_distancia_3)
-    this.matrizes.push(this.minimos2);
-    this.matrizes.push(this.numero_de_clusters_asignado);
-    this.matrizes.push(this.nuevosCentros_1,this.nuevosCentros_2,this.nuevosCentros_3)
-    
-    return this.matrizes;
+    matrizes.push(this.minimos2);
+    matrizes.push(this.numero_de_clusters_asignado);
+    matrizes.push(this.nuevosCentros_1,this.nuevosCentros_2,this.nuevosCentros_3)
+
+    return matrizes;
   }
 
   calcularMinimoMaximo(matriz_1, matriz_2, matriz_3) {

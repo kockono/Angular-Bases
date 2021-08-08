@@ -1,5 +1,8 @@
 <div class="alert alert-success text-xxl-center" role="alert">
-  <!-- <h6 >Iteracion #</h6> <h5 *ngFor="let i of iteraciones"> {{i}} </h5> -->
+  <h6 >Inserte el numero de Iteraciones deseado <input type="text" class="form-control mt-3"  (keyup.enter)="iterarKMeans(iteracion.value)" #iteracion>
+    <button class="btn btn-primary" (click)="iterarKMeans(iteracion.value)">
+      Iterar
+    </button></h6> 
 </div>
 <div class="row">
   <div class="col-sm-6">
@@ -7,7 +10,7 @@
       <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="card w-100">
             <div class="card-header header-elements-inline card-header-azul">
-                <h5 class="card-title mt-2">Centros</h5>
+                <h5 class="card-title mt-2">Centros Iniciales</h5>
                 <div class="header-elements">
                     <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
                 </div>
@@ -17,27 +20,27 @@
                     <tbody>
                       <tr>
                         <th>Cluster 1</th>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>7</td>
-                        <td>7</td>
-                        <td>8</td>
+                        <td>6.00</td>
+                        <td>7.00</td>
+                        <td>7.00</td>
+                        <td>7.00</td>
+                        <td>8.00</td>
                       </tr>
                       <tr>
                         <th>Cluster 2</th>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>6</td>
-                        <td>5</td>
-                        <td>7</td>
+                        <td>3.00</td>
+                        <td>2.00</td>
+                        <td>6.00</td>
+                        <td>5.00</td>
+                        <td>7.00</td>
                       </tr>
                       <tr>
                         <th>Cluster 3</th>
-                        <td>3</td>
-                        <td>5</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>3</td>
+                        <td>3.00</td>
+                        <td>5.00</td>
+                        <td>4.00</td>
+                        <td>5.00</td>
+                        <td>3.00</td>
                       </tr>
                     </tbody>
                   </table>
@@ -73,7 +76,7 @@
               <tr>
                 <th>K</th>
                 <td *ngFor="let i of valoresAbsolutos2">{{i}}</td>
-              </tr>
+              </tr> 
               <tr>
                 <th>M</th>
                 <td *ngFor="let i of valoresAbsolutos3">{{i}}</td>
@@ -99,7 +102,7 @@
       <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="card w-100">
             <div class="card-header header-elements-inline card-header-azul">
-                <h5 class="card-title mt-2">Centros</h5>
+                <h5 class="card-title mt-2">Centros 0</h5>
                 <div class="header-elements">
                     <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
                 </div>
@@ -172,4 +175,39 @@
       </div>
     </div> 
   </div> 
+
+  <div *ngFor="let j of allClusters_1; let p = index;">
+    <div class="col-sm-6">
+      <div class="col">
+        <div class="container d-flex justify-content-center mt-50 mb-50">
+          <div class="card w-100">
+              <div class="card-header header-elements-inline card-header-azul">
+                  <h5 class="card-title mt-2">Centros {{p+1}}</h5>
+                  <div class="header-elements">
+                      <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+                  </div>
+              </div>
+              <div class="table-responsive table-success">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                          <th>Cluster 1</th>
+                          <td *ngFor="let i of allClusters_1[p]">{{i.toFixed(2)}}</td>
+                        </tr>
+                        <tr>
+                          <th>Cluster 2</th>
+                          <td *ngFor="let i of allClusters_2[p]">{{i.toFixed(2)}}</td>
+                        </tr>
+                        <tr>
+                          <th>Cluster 3</th>
+                          <td *ngFor="let i of allClusters_3[p]">{{i.toFixed(2)}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
