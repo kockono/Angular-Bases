@@ -19,6 +19,7 @@ export class AgrupamientosService {
 
   numero_de_clusters_asignado:number[]
 
+  matrizes = [];
 
 
   minimos2 = []
@@ -67,7 +68,6 @@ export class AgrupamientosService {
     let valor_absoluto_2:any
     let valor_absoluto_3:any
 
-    let matrizes = [];
     // console.info(`Centro 1: ${centro_1}`);
     // console.info(`Centro 2: ${centro_2}`);
     // console.info(`Centro 3: ${centro_3}`);
@@ -100,13 +100,13 @@ export class AgrupamientosService {
     }
 
     
-    matrizes.push(matriz_distancia_1, matriz_distancia_2, matriz_distancia_3)
+    this.matrizes.push(matriz_distancia_1, matriz_distancia_2, matriz_distancia_3)
     this.minimos2 = this.calcularMinimoMaximo(matriz_distancia_1, matriz_distancia_2, matriz_distancia_3)
-    matrizes.push(this.minimos2);
-    matrizes.push(this.numero_de_clusters_asignado);
-    matrizes.push(this.nuevosCentros_1,this.nuevosCentros_2,this.nuevosCentros_3)
+    this.matrizes.push(this.minimos2);
+    this.matrizes.push(this.numero_de_clusters_asignado);
+    this.matrizes.push(this.nuevosCentros_1,this.nuevosCentros_2,this.nuevosCentros_3)
 
-    return matrizes;
+    return this.matrizes;
   }
 
   calcularMinimoMaximo(matriz_1, matriz_2, matriz_3) {

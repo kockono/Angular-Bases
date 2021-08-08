@@ -36,6 +36,12 @@ export class AgrupamientoComponent implements OnInit {
   nuevosCentros_2 =[]
   nuevosCentros_3 =[]
 
+  inicioCluster = true; // Esta variable hace que no se remplaze la primera tabla.
+
+  cluter__1 = [] // Primeros clusters
+  cluter__2 = []
+  cluter__3 = []
+
   numero_de_clusters_asignado:number[]
 
   minimos2 = []
@@ -87,18 +93,23 @@ export class AgrupamientoComponent implements OnInit {
     this.nuevoCluster_2 = this.valoresAbsolutos[6]
     this.nuevoCluster_3 = this.valoresAbsolutos[7]
 
+    if(this.cluter__1.length === 0 ) {
+      this.cluter__1 = this.valoresAbsolutos[5]
+      this.cluter__2 = this.valoresAbsolutos[6]
+      this.cluter__3 = this.valoresAbsolutos[7]
+    }
+
     // this.iterarKMeans()
   }
 
-  iterarKMeans(number = 50) {
-    
+  iterarKMeans(number) {
+    number = number -2;
     this.iteracioness = Array(number).fill(4); // [4,4,4,4,4]
+    // let 
 
       for (let i = 0; i < number; i++) {
-        // this.valoresAbsolutos = []
+        this.valoresAbsolutos = []
         this.valoresAbsolutos = this.calcularMultiplesIteraciones(this.nuevoCluster_1, this.nuevoCluster_2,this.nuevoCluster_3).map((res:any) => {
-          console.log(res);
-          
           return res;
         })
         this.nuevoCluster_1 = this.valoresAbsolutos[5]
@@ -137,8 +148,8 @@ export class AgrupamientoComponent implements OnInit {
     let valor_absoluto_1:any
     let valor_absoluto_2:any
     let valor_absoluto_3:any
-
     let matrizes = [];
+
     // console.info(`Centro 1: ${centro_1}`);
     // console.info(`Centro 2: ${centro_2}`);
     // console.info(`Centro 3: ${centro_3}`);

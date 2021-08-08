@@ -102,7 +102,7 @@
       <div class="container d-flex justify-content-center mt-50 mb-50">
         <div class="card w-100">
             <div class="card-header header-elements-inline card-header-azul">
-                <h5 class="card-title mt-2">Centros 0</h5>
+                <h5 class="card-title mt-2">Centros En Iteración: 1</h5>
                 <div class="header-elements">
                     <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
                 </div>
@@ -112,15 +112,15 @@
                     <tbody>
                       <tr>
                         <th>Cluster 1</th>
-                        <td *ngFor="let i of nuevoCluster_1">{{i.toFixed(2)}}</td>
+                        <td *ngFor="let y of cluter__1; let i = index">{{y.toFixed(2)}}</td>
                       </tr>
                       <tr>
                         <th>Cluster 2</th>
-                        <td *ngFor="let i of nuevoCluster_2">{{i.toFixed(2)}}</td>
+                        <td *ngFor="let y of cluter__2">{{y.toFixed(2)}}</td>
                       </tr>
                       <tr>
                         <th>Cluster 3</th>
-                        <td *ngFor="let i of nuevoCluster_3">{{i.toFixed(2)}}</td>
+                        <td *ngFor="let y of cluter__3">{{y.toFixed(2)}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -182,7 +182,7 @@
         <div class="container d-flex justify-content-center mt-50 mb-50">
           <div class="card w-100">
               <div class="card-header header-elements-inline card-header-azul">
-                  <h5 class="card-title mt-2">Centros {{p+1}}</h5>
+                  <h5 class="card-title mt-2">Centros En Iteración: {{p+2}}</h5>
                   <div class="header-elements">
                       <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
                   </div>
@@ -210,4 +210,6 @@
       </div>
     </div>
   </div>
+  
+
 </div>
