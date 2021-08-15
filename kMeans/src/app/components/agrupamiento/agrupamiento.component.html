@@ -1,0 +1,268 @@
+<div class="alert alert-success text-xxl-center" role="alert">
+  <h6 >Inserte el numero de Iteraciones deseado <input type="text" class="form-control mt-3"  (keyup.enter)="iterarKMeans(iteracion.value)" #iteracion>
+    <button class="btn btn-primary" (click)="iterarKMeans(iteracion.value)">
+      Iterar
+    </button></h6> 
+</div>
+<div class="container">
+  <div class="col-sm-6">
+    <div class="col">
+      <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="card w-100">
+            <div class="card-header header-elements-inline card-header-azul">
+                <h5 class="card-title mt-2">Centros Iniciales</h5>
+                <div class="header-elements">
+                    <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+                </div>
+            </div>
+            <div class="table-responsive table-success">  
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <th>Cluster 1</th>
+                        <td>6.00</td>
+                        <td>7.00</td>
+                        <td>7.00</td>
+                        <td>7.00</td>
+                        <td>8.00</td>
+                      </tr>
+                      <tr>
+                        <th>Cluster 2</th>
+                        <td>3.00</td>
+                        <td>2.00</td>
+                        <td>6.00</td>
+                        <td>5.00</td>
+                        <td>7.00</td>
+                      </tr>
+                      <tr>
+                        <th>Cluster 3</th>
+                        <td>3.00</td>
+                        <td>5.00</td>
+                        <td>4.00</td>
+                        <td>5.00</td>
+                        <td>3.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>
+
+<canvas id="my_first_chart"></canvas>
+
+<div class="container container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="col">
+        <div class="container d-flex justify-content-center mt-50 mb-50">
+          <div class="card w-100">
+              <div class="card-header header-elements-inline card-header-azul">
+                  <h5 class="card-title mt-2">Centros En Iteración: 1</h5>
+                  <div class="header-elements">
+                      <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+                  </div>
+              </div>
+              <div class="table-responsive table-success">  
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                          <th>Cluster 1</th>
+                          <td *ngFor="let y of cluter__1; let i = index">{{y.toFixed(2)}}</td>
+                        </tr>
+                        <tr>
+                          <th>Cluster 2</th>
+                          <td *ngFor="let y of cluter__2">{{y.toFixed(2)}}</td>
+                        </tr>
+                        <tr>
+                          <th>Cluster 3</th>
+                          <td *ngFor="let y of cluter__3">{{y.toFixed(2)}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+        </div>
+      </div> 
+    </div> 
+    <div class="col-sm-6">
+      <div class="col">
+        <div class="container d-flex justify-content-center mt-50 mb-50">
+          <div class="card w-100">
+            <div class="card-header header-elements-inline card-header-roja">
+              <h5 class="card-title mt-2">DKM</h5>
+              <div class="header-elements">
+                  <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+              </div>
+          </div>
+          <div class="table-responsive table-success">  
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th *ngFor="let i of letras">{{i}}</th>
+                </tr>
+                <tr>
+                <tr>
+                  <th>1</th>
+                  <td *ngFor="let i of valoresAbsolutos1">{{i}}</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td *ngFor="let i of valoresAbsolutos2">{{i}}</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td *ngFor="let i of valoresAbsolutos3">{{i}}</td>
+                </tr>
+                <tr>
+                  <th>Min</th>
+                  <td *ngFor="let i of valoresMinimos">{{i}}</td>
+                </tr>
+                <tr>
+                  <th>Cluster</th>
+                  <td *ngFor="let i of numero_del_cluster_asignado" [style.background-color]="checkColor(i)" >{{i}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+          </div>
+        </div>
+      </div> 
+    </div> 
+</div> 
+  <div class="row" *ngFor="let j of allClusters_1; let p = index;">
+      <div class="col-sm-4">
+        <div class="col">
+          <div class="container d-flex justify-content-center mt-50 mb-50">
+            <div class="card w-100">
+                <div class="card-header header-elements-inline card-header-azul">
+                    <h5 class="card-title mt-2">Centros En Iteración: {{p+2}}</h5>
+                    <div class="header-elements">
+                        <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+                    </div>
+                 </div>
+                <div class="table-responsive table-success">
+                      <table class="table table-striped">
+                        <tbody>
+                          <tr>
+                            <th>Cluster 1</th>
+                            <td *ngFor="let i of allClusters_1[p]">{{i.toFixed(2)}}</td>
+                          </tr>
+                          <tr>
+                            <th>Cluster 2</th>
+                            <td *ngFor="let i of allClusters_2[p]">{{i.toFixed(2)}}</td>
+                          </tr>
+                          <tr>
+                            <th>Cluster 3</th>
+                            <td *ngFor="let i of allClusters_3[p]">{{i.toFixed(2)}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col">
+        <div class="container d-flex justify-content-center mt-50 mb-50">
+          <div class="card w-100">
+            <div class="card-header header-elements-inline card-header-roja">
+              <h5 class="card-title mt-2">Matrizes Iteración {{p+2}}</h5>
+              <div class="header-elements">
+                  <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+              </div>
+          </div>
+          <div class="table-responsive table-success">  
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <th></th>
+                  <th *ngFor="let i of letras">{{i}}</th>
+                </tr>
+                <tr>
+                <tr>
+                  <th>1</th>
+                  <td *ngFor="let i of valoresAbsolutos__1[p]">{{i.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td *ngFor="let i of valoresAbsolutos__2[p]">{{i.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td *ngFor="let i of valoresAbsolutos__3[p]">{{i.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                  <th>Min</th>
+                  <td *ngFor="let i of minimosDeLosClusteres[p]">{{i.toFixed(2)}}</td>
+                </tr>
+                <tr>
+                  <th>Cluster</th>
+                  <td *ngFor="let i of numeroDeClusterAsignado[p]" [style.background-color]="checkColor(i)">{{i.toFixed(2)}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+          </div>
+     
+      </div> 
+    </div> 
+
+  
+  </div>
+ 
+  <div class="container">
+    <div class="col-sm-6">
+        <div class="container d-flex justify-content-center mt-50 mb-50"  >
+          <div class="card w-100">
+              <div class="card-header header-elements-inline card-header-negra">
+                  <h5 class="card-title mt-2">Grupos FINALES</h5>
+                  <div class="header-elements">
+                      <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true">
+                        <i class="fa fa-minus font-weight-light"></i>
+                      </a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
+                  </div>
+              </div>
+              <div class="table-responsive table-success ">  
+                    <table class="table table-striped ">
+                      <tbody>
+                        <tr>
+                          <th>Grupos 1</th>
+                          <td *ngFor="let i of grupoFinal">{{i}}</td>
+                        </tr>
+                        <tr>
+                          <th>Grupos 2</th>
+                          <td *ngFor="let i of grupoFinal_2">{{i}}</td>
+                        </tr>
+                        <tr>
+                          <th>Grupos 3</th>
+                          <td *ngFor="let i of grupoFinal_3">{{i}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+        </div>
+    </div> 
+    <div style="display: block;">
+      <canvas baseChart
+        [datasets]="scatterChartData"
+        [options]="scatterChartOptions"
+        [chartType]="scatterChartType">
+      </canvas>
+    </div> 
+  </div>
+
+
+
+
+
+
+
+
+
+ 

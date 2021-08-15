@@ -1,0 +1,8 @@
+.card-header-azul{background: rgb(209, 238, 240)!important}
+.card-header-roja{background: rgb(207, 155, 130)!important}
+.card-header-negra{background: black!important; color:white!important}
+
+td {
+    padding: 5px;
+    text-align: left;
+    }
