@@ -66,6 +66,10 @@ export class AgrupamientoComponent implements OnInit {
             [3,	5,	5,	6,	3],
           ]
 
+    valoresIniciaes_1:any = [] 
+    valoresIniciaes_2:any = []        
+    valoresIniciaes_3:any = []        
+
     valoresAbsolutos___1:any = []
     valoresAbsolutos___2:any = []
     valoresAbsolutos___3:any = []
@@ -151,6 +155,15 @@ export class AgrupamientoComponent implements OnInit {
 }
 
 calcularDistancias(centro_1 = this.data[ this.random_1], centro_2 = this.data[this.random_2], centro_3 = this.data[this.random_3]){
+
+  if(this.contador_angel_contreras == 0) {
+    this.valoresIniciaes_1 = centro_1;
+    this.valoresIniciaes_2 = centro_1;
+    this.valoresIniciaes_3 = centro_1;
+  }
+  
+  this.contador_angel_contreras++;
+
     let  valor_final_absoluto_1      = 0.0
     let  valor_final_absoluto_2      = 0.0
     let  valor_final_absoluto_3      = 0.0
@@ -438,7 +451,6 @@ calcularDistancias(centro_1 = this.data[ this.random_1], centro_2 = this.data[th
   }
 
   moverCentros(promedio:number, maximo:number, minimos:number[], minimoDeMinimos:number) {
-    this.contador_angel_contreras++;
 
     let mini  = []
     let maxi  = []
@@ -451,12 +463,6 @@ calcularDistancias(centro_1 = this.data[ this.random_1], centro_2 = this.data[th
     let clusterMiniNumber = 0
     let clusterMaxiNumber = 0
     let clusterPromNumber = 0
-
-    
-    if(this.contador_angel_contreras == 6) {
-      console.log("Angel Estrada");
-
-    }
 
     for (let i = 0; i < minimos.length; i++) {
         let temporal= []

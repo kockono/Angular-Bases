@@ -20,27 +20,15 @@
                     <tbody>
                       <tr>
                         <th>Cluster 1</th>
-                        <td>6.00</td>
-                        <td>7.00</td>
-                        <td>7.00</td>
-                        <td>7.00</td>
-                        <td>8.00</td>
+                        <td *ngfor="let c of valoresIniciaes_1">{{c}}</td>
                       </tr>
                       <tr>
                         <th>Cluster 2</th>
-                        <td>3.00</td>
-                        <td>2.00</td>
-                        <td>6.00</td>
-                        <td>5.00</td>
-                        <td>7.00</td>
+                        <td *ngfor="let c of valoresIniciaes_2">{{c}}</td>
                       </tr>
                       <tr>
                         <th>Cluster 3</th>
-                        <td>3.00</td>
-                        <td>5.00</td>
-                        <td>4.00</td>
-                        <td>5.00</td>
-                        <td>3.00</td>
+                        <td *ngfor="let c of valoresIniciaes_3">{{c}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -53,7 +41,7 @@
 
 <canvas id="my_first_chart"></canvas>
 
-<div class="container container-fluid">
+<div class="container container-fluid"><!--Despliega los clusters iniciales-->
   <div class="row">
     <div class="col-sm-4">
       <div class="col">
@@ -87,12 +75,12 @@
         </div>
       </div> 
     </div> 
-    <div class="col-sm-6">
+    <div class="col-sm-6"> <!--Despliega la matriz de iteraciones inicial-->
       <div class="col">
         <div class="container d-flex justify-content-center mt-50 mb-50">
           <div class="card w-100">
             <div class="card-header header-elements-inline card-header-roja">
-              <h5 class="card-title mt-2">DKM</h5>
+              <h5 class="card-title mt-2">Matriz Interación 1</h5>
               <div class="header-elements">
                   <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
               </div>
@@ -133,9 +121,9 @@
       </div> 
     </div> 
 </div> 
-  <div class="row" *ngFor="let j of allClusters_1; let p = index;">
+  <div class="row" *ngFor="let j of allClusters_1; let p = index;"> 
       <div class="col-sm-4">
-        <div class="col">
+        <div class="col"><!--Despliega los clusters de N iteracion-->
           <div class="container d-flex justify-content-center mt-50 mb-50">
             <div class="card w-100">
                 <div class="card-header header-elements-inline card-header-azul">
@@ -167,11 +155,11 @@
         </div>
       </div>
     
-      <div class="col">
+      <div class="col"><!--Despliega la matriz de iteraciones de N iteracion-->
         <div class="container d-flex justify-content-center mt-50 mb-50">
           <div class="card w-100">
             <div class="card-header header-elements-inline card-header-roja">
-              <h5 class="card-title mt-2">Matrizes Iteración {{p+2}}</h5>
+              <h5 class="card-title mt-2">Matriz Iteración {{p+2}}</h5>
               <div class="header-elements">
                   <div class="list-icons text-muted font-weight-light"> <a class="list-icons-item" data-action="collapse" data-abc="true"><i class="fa fa-minus font-weight-light"></i></a> <a class="list-icons-item" data-action="reload" data-abc="true"><i class="fa fa-refresh"></i></a> <a class="list-icons-item" data-action="remove" data-abc="true"><i class="fa fa-close"></i></a> </div>
               </div>
@@ -215,7 +203,7 @@
   
   </div>
  
-  <div class="container">
+  <div class="container"> <!--Despliega los grupos finales-->
     <div class="col-sm-6">
         <div class="container d-flex justify-content-center mt-50 mb-50"  >
           <div class="card w-100">
@@ -249,7 +237,7 @@
         </div>
     </div> 
     <br>
-    <div style="display: block;">
+    <div style="display: block;"> <!-- Despliega la grafica de los grupos finales -->
       <canvas baseChart
         [datasets]="scatterChartData"
         [options]="scatterChartOptions"
