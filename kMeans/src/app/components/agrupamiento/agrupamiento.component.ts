@@ -89,7 +89,9 @@ export class AgrupamientoComponent implements OnInit {
     grupoFinal_2:any = []
     grupoFinal_3:any = []
 
-    
+    random_1:number= 0;
+    random_2:number= 0;
+    random_3:number= 0;
 
   constructor() { 
     
@@ -121,9 +123,11 @@ export class AgrupamientoComponent implements OnInit {
   }
 
   inicio() {
-    const clusterRandom = Math.floor(Math.random() * 13) + 1
-    const clusterRandom_2 = Math.floor(Math.random() * 13) + 1
-    const clusterRandom_3 = Math.floor(Math.random() * 13) + 1
+
+    let randomClusters = this.getRandoms()
+    this.random_1 = randomClusters[0]
+    this.random_2 = randomClusters[1]
+    this.random_3 = randomClusters[2]
     
     this.valoresAbsolutos = this.calcularDistancias().map((res:any) => {
       return res;
@@ -144,13 +148,9 @@ export class AgrupamientoComponent implements OnInit {
       this.cluter__2 = this.valoresAbsolutos[6]
       this.cluter__3 = this.valoresAbsolutos[7]
     }
+}
 
-    // this.iterarKMeans(7)
-
-  }
-
-
-  calcularDistancias(centro_1 = this.data[3], centro_2 = this.data[10], centro_3 = this.data[12]){
+calcularDistancias(centro_1 = this.data[ this.random_1], centro_2 = this.data[this.random_2], centro_3 = this.data[this.random_3]){
     let  valor_final_absoluto_1      = 0.0
     let  valor_final_absoluto_2      = 0.0
     let  valor_final_absoluto_3      = 0.0
@@ -200,6 +200,28 @@ export class AgrupamientoComponent implements OnInit {
     return matrizes;
   }
 
+  getRandoms() {
+    var numbers = [];
+      for (let i = 0; i < 3; i++) {
+        var n =  Math.floor(Math.random() * 13) + 1;
+        var check = numbers.includes(n);
+
+      if(check === false) {
+        numbers.push(n);
+      } else {
+        while(check === true){
+          n = Math.floor(Math.random() * 13) + 1;
+          check = numbers.includes(n);
+            if(check === false){
+              numbers.push(n);
+            }
+          }
+        }
+      }
+  
+      return  numbers
+    }
+
   iterarKMeans(number:any) {
     
     number = number -1;
@@ -231,6 +253,7 @@ export class AgrupamientoComponent implements OnInit {
         this.valoresAbsolutos__1.push(this.valoresAbsolutos___1)
         this.valoresAbsolutos__2.push(this.valoresAbsolutos___2)
         this.valoresAbsolutos__3.push(this.valoresAbsolutos___3)
+        
         this.minimosDeLosClusteres.push(this.minimosDeLosClusteres_)
         this.numeroDeClusterAsignado.push(this.numeroDeClusterAsignado_)
   
@@ -252,6 +275,7 @@ export class AgrupamientoComponent implements OnInit {
             M = 12,
             N = 13
           }
+
           for (let f = 0; f < 14; f++) { // f es la posicion
             
             if(this.numeroDeClusterAsignado_[f] == 1 ) {
@@ -264,17 +288,102 @@ export class AgrupamientoComponent implements OnInit {
               this.grupoFinal_3.push(Posicion[f])
             }
           }
+
+
         }
 
-       }
-       console.log(this.numeroDeClusterAsignado_);
-       console.log(this.grupoFinal);
-       console.log(this.grupoFinal_2);
-       console.log(this.grupoFinal_3);
+       }// Aquí termina el for
        
-     
+      //  console.log(this.numeroDeClusterAsignado_);
+      //  console.log(this.grupoFinal);
+      //  console.log(this.grupoFinal_2);
+      //  console.log(this.grupoFinal_3);
+      //  console.log(this.valoresAbsolutos[0])
+       console.log(this.valoresAbsolutos[1]) //V1
+       console.log(this.valoresAbsolutos[2]) //V2
+       console.log(this.valoresAbsolutos[3]) //V3
+       
+       console.log(this.valoresAbsolutos[4]); //CLUSTERS
+       
+       console.log('Centro 1',this.valoresAbsolutos[5]) // Centros 1
+       console.log(this.valoresAbsolutos[6])    // Centros 2
+       console.log(this.valoresAbsolutos[7])    // Centros 3
+       
+       var dataaa=[];
+       var dataab=[];
+       var dataac=[];
+       for(let a =0;a<14;a++){
+         if(this.valoresAbsolutos[4][a]== 1){
+          dataaa.push({x: this.data[a][0], y:this.valoresAbsolutos[5][0]})
+          dataaa.push({x: this.data[a][1], y:this.valoresAbsolutos[5][1]})
+          dataaa.push({x: this.data[a][2], y:this.valoresAbsolutos[5][2]})
+          dataaa.push({x: this.data[a][3], y:this.valoresAbsolutos[5][3]})
+          dataaa.push({x: this.data[a][4], y:this.valoresAbsolutos[5][4]})
+         }
+         if(this.valoresAbsolutos[4][a]== 2){
+          dataab.push({x: this.data[a][0], y:this.valoresAbsolutos[6][0]})
+          dataab.push({x: this.data[a][1], y:this.valoresAbsolutos[6][1]})
+          dataab.push({x: this.data[a][2], y:this.valoresAbsolutos[6][2]})          
+          dataab.push({x: this.data[a][3], y:this.valoresAbsolutos[6][3]})
+          dataab.push({x: this.data[a][4], y:this.valoresAbsolutos[6][4]})
+         }
+         if(this.valoresAbsolutos[4][a]== 3){
+          dataac.push({x: this.data[a][0], y:this.valoresAbsolutos[7][0]})
+          dataac.push({x: this.data[a][1], y:this.valoresAbsolutos[7][1]})
+          dataac.push({x: this.data[a][2], y:this.valoresAbsolutos[7][2]})          
+          dataac.push({x: this.data[a][3], y:this.valoresAbsolutos[7][3]})
+          dataac.push({x: this.data[a][4], y:this.valoresAbsolutos[7][4]})
+         }
+       }
+       this.scatterChartData=[];
 
-      // console.log(this.numeroDeClusterAsignado);
+       this.scatterChartData.push({
+        label: "Grupo "+(1).toString(),
+        data: dataaa,
+        pointBackgroundColor:'#A6E2DC',
+        backgroundColor: '#A6E2DC',
+        pointRadius: 10,
+      })
+      this.scatterChartData.push({
+        label: "Grupo "+(2).toString(),
+        data: dataab,
+        pointBackgroundColor:'#97D49B',
+        backgroundColor: '#97D49B',
+        pointRadius: 10,
+      })
+      this.scatterChartData.push({
+        label: "Grupo "+(3).toString(),
+        data: dataac,
+        pointBackgroundColor:'#E4A58F',
+        backgroundColor: '#E4A58F',
+        pointRadius: 10,
+      })
+/*     this.scatterChartData=[]
+       var datal:any[]=[];
+
+       for(let a=0;a<nCluster;a++){
+        for(let b=0;b<14;b++){
+          
+          if(nCluster==2){
+            if(this.DatosFinal[nIteraciones][b][3]==a+1){
+              datal.push({x:this.DatosFinal[nIteraciones][b][0],y:this.DatosFinal[nIteraciones][b][1]})
+            }
+          }else{
+            if(this.DatosFinal[nIteraciones][b][4]==a+1){
+              datal.push({x: this.DatosFinal[nIteraciones][b][3],  y: (this.DatosFinal[nIteraciones][b][0]+this.DatosFinal[nIteraciones][b][1]+this.DatosFinal[nIteraciones][b][2])/3 })
+            }
+          }
+  
+        }
+  
+        this.scatterChartData.push({
+          label: (a+1).toString(),
+          data: datal,
+          backgroundColor: color,
+          pointRadius: 10,
+        }) */
+
+       // console.log(this.numeroDeClusterAsignado);
 
 
   }
@@ -419,26 +528,6 @@ export class AgrupamientoComponent implements OnInit {
         }
 
         let numeroDeParche = 0;
-        
-
-
-        if(this.contador_angel_contreras == 6 && i == 1) {
-          clusterNumbers.push(1)
-        }
-
-        if(this.contador_angel_contreras == 15 && i == 1) {
-          clusterNumbers.push(1)
-        }
-
-        if(this.contador_angel_contreras == 20 && i == 1) {
-          clusterNumbers.push(1)
-        }
-        if(this.contador_angel_contreras == 29 && i == 1) {
-          clusterNumbers.push(1)
-        }
-        // if(this.contador_angel_contreras == 31 && i == 1) {
-        //   clusterNumbers.push(1)
-        // }
 
         if(mini[0] == closteToZero && i > 0 && mini[1] == 1 ) { 
           clusterNumbers.push(1)
