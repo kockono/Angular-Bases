@@ -1,0 +1,12 @@
+<div class="row" >
+    <div class="col-md-6" *ngIf="pelicula">
+        <img [src]="pelicula.backdrop_path | poster"
+             [alt]="pelicula.title"
+             class="img-thumbnail">
+             
+             <div class="col-md-6 mt-3">
+                 <h3>{{pelicula.title}}</h3>
+             </div>
+    </div>
+
+</div>
