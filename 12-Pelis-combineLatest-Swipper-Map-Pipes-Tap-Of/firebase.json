@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/12-Pelis-combineLatest-Swipper-Map-Pipes-Tap-Of",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
