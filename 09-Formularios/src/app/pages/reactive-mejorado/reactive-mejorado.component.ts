@@ -12,18 +12,19 @@ export class ReactiveMejoradoComponent implements OnInit {
 
 
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder) {
 
     this.crearFormulario();
-    
+
   }
 
   ngOnInit(): void {
   }
 
 
+  // Nuevo Formato
   campoNoValido(campo: string) {
-      return this.forma.get(`${campo}`).invalid && this.forma.get(`${campo}`).touched;
+      return this.forma.get(`${campo}`)?.invalid && this.forma.get(`${campo}`)?.touched;
   }
 
 
@@ -44,7 +45,7 @@ export class ReactiveMejoradoComponent implements OnInit {
 
   crearFormulario(){
 
-    this.forma = this.fb.group({ // Objeto de JS 
+    this.forma = this.fb.group({ // Objeto de JS
        nombre   : ['', Validators.required],
        apellido : ['', [Validators.required,Validators.minLength(5)]],
        correo   : ['',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],

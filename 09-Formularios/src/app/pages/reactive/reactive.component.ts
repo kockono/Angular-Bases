@@ -14,12 +14,12 @@ export class ReactiveComponent implements OnInit {
 
 
 
-  constructor(private fb:FormBuilder, private validador: ValidadoresService) { 
+  constructor(private fb:FormBuilder, private validador: ValidadoresService) {
 
     this.crearFormulario();
     this.cargarDataAlFormulario();
     this.crearListeners();
-    
+
   }
 
 
@@ -31,12 +31,13 @@ export class ReactiveComponent implements OnInit {
     return this.forma.get('pasatiempos') as FormArray //Es un arra de form
   }
 
+  // Nuevo Formato
   get nombreNoValido() {
-    return this.forma.get('nombre').invalid && this.forma.get('nombre').touched;
+    return this.forma.get('nombre')?.invalid && this.forma.get('nombre').touched;
   }
 
   get apellidoNoValido() {
-    return this.forma.get('apellido').invalid && this.forma.get('apellido').touched;
+    return this.forma.get('apellido')?.invalid && this.forma.get('apellido').touched;
   }
 
   get correoNoValido() {
@@ -92,7 +93,7 @@ export class ReactiveComponent implements OnInit {
 
   // crearFormulario(){ //!Antiguo
 
-  //   this.forma = this.fb.group({ // Objeto de JS 
+  //   this.forma = this.fb.group({ // Objeto de JS
   //      nombre   : ['', [Validators.required, this.validador.noUsarNombreChris]],
   //      apellido : ['', [Validators.required,Validators.minLength(5)]],
   //      correo   : ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
@@ -116,8 +117,8 @@ export class ReactiveComponent implements OnInit {
 
   crearFormulario(){
 
-    this.forma = new FormGroup({ // Objeto de JS 
-       nombre    : new FormControl('', [Validators.required, this.validador.noUsarNombreChris]), 
+    this.forma = new FormGroup({ // Objeto de JS
+       nombre    : new FormControl('', [Validators.required, this.validador.noUsarNombreChris]),
        apellido  : new FormControl('', [Validators.required,Validators.minLength(5)]),
        correo    : new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
        usuario   : new FormControl('', this.validador.existeUsuario), // Promesa Asyncrona, es el 3er argumento del control
@@ -175,7 +176,7 @@ export class ReactiveComponent implements OnInit {
 
     if(this.forma.invalid) { //Object.values tiene como referencia lo que llamamos DOM en Js
        Object.values(this.forma.controls).forEach( control => { // Del ngForm los objetos y valores de los control revisa si han sido tocados
-        
+
         if(control instanceof FormGroup) { //Dime si control es una instancia de FourmGroup
           Object.values(control.controls).forEach( control => control.markAsTouched())
         } else {
@@ -183,7 +184,7 @@ export class ReactiveComponent implements OnInit {
         }
 
       })
-      
+
     }
 
     // Posteo de información
